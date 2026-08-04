@@ -23,7 +23,7 @@ if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
         -E "tmux attach -t $SESSION_NAME"
 else
     if [ -n "$CMD" ]; then
-        tmux new-session -d -s "$SESSION_NAME" -c "$CURRENT_DIR" "bash -c 'while true; do $CMD; done'"
+        tmux new-session -d -s "$SESSION_NAME" -c "$CURRENT_DIR" "$SHELL -c 'while true; do $CMD; done'"
     else
         tmux new-session -d -s "$SESSION_NAME" -c "$CURRENT_DIR"
     fi
